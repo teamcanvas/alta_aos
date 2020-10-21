@@ -1,7 +1,6 @@
 package io.canvas.colors.utils
 
 import androidx.lifecycle.MutableLiveData
-import io.canvas.colors.data.models.BLEDevice
 
 class ListLiveData<T> : MutableLiveData<ArrayList<T>>() {
     fun add(item: T) {

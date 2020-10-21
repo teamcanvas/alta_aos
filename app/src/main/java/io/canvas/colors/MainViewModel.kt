@@ -20,6 +20,9 @@ class MainViewModel @ViewModelInject constructor(
     private val _isScanning = MutableLiveData<Boolean>().apply { value = false }
     val isScanning: LiveData<Boolean> = _isScanning
 
+    private val _deviceClickEvent = MutableLiveData<Event<BLEDevice>>()
+    val deviceClickEvent: LiveData<Event<BLEDevice>> = _deviceClickEvent
+
     val items = ListLiveData<BLEDevice>()
 
     fun startScan() {
@@ -59,5 +62,9 @@ class MainViewModel @ViewModelInject constructor(
 
     private fun <T> hasDuplicates(arr: Array<T>): Boolean {
         return arr.size != arr.distinct().count()
+    }
+
+    fun clickDevice(device: BLEDevice) {
+        _deviceClickEvent.value = Event(device)
     }
 }

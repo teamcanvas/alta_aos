@@ -5,6 +5,7 @@ import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
             for (item in it) {
                 Timber.d("name: ${item.name}, address: ${item.address}")
             }
+        })
+
+        viewModel.deviceClickEvent.observe(this, EventObserver {
+            Toast.makeText(this, "deviceName: ${it.name}\naddress: ${it.address}", Toast.LENGTH_SHORT).show()
         })
     }
 }
