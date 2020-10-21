@@ -37,7 +37,7 @@ open class NetworkModule {
 
     companion object {
         const val OKHTTP_TAG: String = "OKHTTP"
-        const val BASE_URL: String = ""
+        const val BASE_URL: String = "https://google.com"
     }
 
     @Provides

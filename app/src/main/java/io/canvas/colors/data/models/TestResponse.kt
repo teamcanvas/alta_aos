@@ -3,7 +3,7 @@ package io.canvas.colors.data.models
 import com.google.gson.annotations.SerializedName
 
 data class TestResponse(
-    @SerializedName("headers") val headeres: binData
+    @SerializedName("headers") val headers: binData
 )
 
 data class binData(
