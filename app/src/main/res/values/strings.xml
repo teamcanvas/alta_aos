@@ -3,4 +3,6 @@
     <string name="welcome">환영합니다!</string>
     <string name="welcome_explain" translatable="false">컬러 디바이스 사용을 위해\n등록을 진행해주세요.</string>
     <string name="register_continue" translatable="false">계속하기</string>
+    <string name="search_ble">기기를 검색 중 입니다.</string>
+    <string name="search_ble_explain">기기가 나타날때 까지 잠시만 기다려주세요.</string>
 </resources>
