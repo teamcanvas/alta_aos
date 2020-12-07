@@ -12,7 +12,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "io.canvas.colors"
+        applicationId "io.canvas.alta"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -20,7 +20,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        project.ext.set("archivesBaseName", "colors_android-" + defaultConfig.versionName + "(b" +defaultConfig.versionCode + ")")
+        project.ext.set("archivesBaseName", "alta_android-" + defaultConfig.versionName + "(b" +defaultConfig.versionCode + ")")
     }
 
     buildTypes {
