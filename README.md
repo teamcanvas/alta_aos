@@ -1,5 +1,5 @@
-# Colors AOS
-Colors Android Project of Colors IoT Device
+# Alta AOS
+Alta Android Project of Colors IoT Device
 
 ## About
 
