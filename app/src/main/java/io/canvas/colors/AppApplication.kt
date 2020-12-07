@@ -14,5 +14,7 @@ class AppApplication : Application() {
         Logger.addLogAdapter(AndroidLogAdapter())
         Timber.plant(Timber.DebugTree())
         Timber.d("-------------------- [[ onCreate APP ]] --------------------")
+        //TODO
+        Timber.e("CHECK LOGGED IN SESSION!")
     }
 }

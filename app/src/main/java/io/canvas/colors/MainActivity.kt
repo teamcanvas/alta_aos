@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         adapter = DeviceListAdapter(viewModel)
         deviceListRecyclerView.adapter = adapter
 
-        viewModel.items.observe(this, {
+        viewModel.items.observe(this, Observer {
             Timber.d("${it?.size}")
 
             for (item in it) {

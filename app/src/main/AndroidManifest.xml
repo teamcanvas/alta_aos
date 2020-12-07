@@ -20,6 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Colors_android">
         <activity android:name=".MainActivity">
+
+        </activity>
+
+        <activity android:name=".register.WelcomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -78,4 +78,7 @@ dependencies {
 
     implementation "androidx.fragment:fragment-ktx:1.2.5"
 
+    //Lottie
+    implementation "com.airbnb.android:lottie:3.5.0"
+
 }

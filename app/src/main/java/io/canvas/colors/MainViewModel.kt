@@ -27,6 +27,8 @@ class MainViewModel @ViewModelInject constructor(
 
     fun startScan() {
         val leScanner = bluetoothAdapter.bluetoothLeScanner
+        items.clear(true)
+
         Handler().postDelayed(delayInMillis = 6000L) {
             _isScanning.value = false
             leScanner?.stopScan(mScanCallback)
@@ -53,6 +55,7 @@ class MainViewModel @ViewModelInject constructor(
         }
 
         private fun processResult(result: ScanResult) {
+            //TODO 컬러 디바이스 이름에 맞춰 contains 로 변경
             if (result.device.name != null)
                 if (!hasDuplicates(items.value!!.toArray())) {
                     items.add(BLEDevice(result.device.name ?: "N/A", result.device.address))
