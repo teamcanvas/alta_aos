@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="io.canvas.colors.register.RegisterViewModel" />
+            type="io.canvas.alta.register.RegisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
