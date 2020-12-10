@@ -9,10 +9,10 @@
         android:id="@+id/page_2"
         android:enabled="true"
         android:icon="@drawable/abc_vector_test"
-        android:title="3fdsaf"/>
+        android:title="Acro"/>
     <item
         android:id="@+id/page_3"
         android:enabled="true"
         android:icon="@drawable/abc_vector_test"
-        android:title="3fdwssssaf"/>
+        android:title="Settings"/>
 </menu>
