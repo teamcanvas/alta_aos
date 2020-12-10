@@ -81,4 +81,7 @@ dependencies {
     //Lottie
     implementation "com.airbnb.android:lottie:3.5.0"
 
+    //bottom bar
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.6'
+
 }
