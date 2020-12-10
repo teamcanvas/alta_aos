@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "colors_android"
+rootProject.name = "alta_android"

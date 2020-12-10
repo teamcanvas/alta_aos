@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Colors</string>
+    <string name="app_name">Alta</string>
     <string name="welcome">Welcome!</string>
+    <string name="register_continue">Continue</string>
+    <string name="search_ble" translatable="false">Searching Devices...</string>
+    <string name="welcome_explain" translatable="false">Please register to Use Color Device.</string>
 </resources>

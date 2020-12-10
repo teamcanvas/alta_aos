@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="io.canvas.colors.MainViewModel" />
+            type="io.canvas.alta.MainViewModel" />
 
         <variable
             name="item"
-            type="io.canvas.colors.data.models.BLEDevice" />
+            type="io.canvas.alta.data.models.BLEDevice" />
     </data>
 
     <LinearLayout
