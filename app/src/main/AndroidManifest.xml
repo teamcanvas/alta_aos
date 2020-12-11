@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.canvas.alta">
 
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <!-- If your app targets Android 9 or lower, you can declare
          ACCESS_COARSE_LOCATION instead. -->
@@ -23,7 +23,11 @@
 
         </activity>
 
-        <activity android:name="io.canvas.alta.register.WelcomeActivity" >
+        <activity android:name="io.canvas.alta.register.WelcomeActivity">
+
+        </activity>
+
+        <activity android:name=".register.ReadyAcroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
