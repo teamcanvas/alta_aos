@@ -11,24 +11,28 @@
 
         <import type="android.text.Html" />
 
+        <import type="io.canvas.alta.register.RegisterStep" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#F4F4F4">
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/materialButton"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
+            android:background="@{viewModel.acroStep != RegisterStep.READY_ACRO_3 ? @drawable/button_default : @drawable/gradient_test }"
             android:fontFamily="@font/noto_sans_bold"
             android:onClick="@{() -> viewModel.acroNextStep()}"
             android:text="Next Step"
             android:textAllCaps="false"
-            app:backgroundTint="#81879C"
+            android:textColor="@color/white"
             app:cornerRadius="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/noto_sans_bold"
             android:text="Ready Acro"
             android:textColor="#565B6C"
@@ -55,6 +59,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="64dp"
             android:fontFamily="@font/noto_sans_regular"
+            android:lineSpacingExtra="-10dp"
             android:textSize="24sp"
             app:acro_setting_text="@{viewModel.acroStep}"
             app:layout_constraintBottom_toTopOf="@+id/materialButton"
@@ -68,7 +73,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:src="@drawable/acro_setting_1"
+            app:acro_setting_image="@{viewModel.acroStep}"
             app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
