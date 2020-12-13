@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="io.canvas.alta.MainViewModel" />
+            type="io.canvas.alta.register.SearchDeviceViewModel" />
 
         <variable
             name="item"

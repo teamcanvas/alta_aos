@@ -30,9 +30,6 @@ class MainActivity : AppCompatActivity() {
         viewBinding.lifecycleOwner = this
         viewBinding.viewModel = viewModel
 
-        adapter = DeviceListAdapter(viewModel)
-        viewBinding.deviceListRecyclerView.adapter = adapter
-
         viewModel.items.observe(this, Observer {
             Timber.d("${it?.size}")
 

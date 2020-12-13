@@ -20,14 +20,14 @@
         android:layout_height="match_parent"
         android:background="#F4F4F4">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/materialButton"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@{viewModel.acroStep != RegisterStep.READY_ACRO_3 ? @drawable/button_default : @drawable/gradient_test }"
+            android:backgroundTint="#81879C"
             android:fontFamily="@font/noto_sans_bold"
             android:onClick="@{() -> viewModel.acroNextStep()}"
             android:text="Next Step"

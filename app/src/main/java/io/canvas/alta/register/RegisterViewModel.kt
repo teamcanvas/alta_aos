@@ -18,6 +18,9 @@ class RegisterViewModel @ViewModelInject constructor() : ViewModel() {
             RegisterStep.READY_ACRO_2 -> {
                 acroStep.value = RegisterStep.READY_ACRO_3
             }
+            RegisterStep.READY_ACRO_3 -> {
+                acroStep.value = RegisterStep.GO_SEARCH_DEVICE
+            }
         }
     }
 }
@@ -25,5 +28,6 @@ class RegisterViewModel @ViewModelInject constructor() : ViewModel() {
 enum class RegisterStep() {
     READY_ACRO_1,
     READY_ACRO_2,
-    READY_ACRO_3;
+    READY_ACRO_3,
+    GO_SEARCH_DEVICE;
 }
