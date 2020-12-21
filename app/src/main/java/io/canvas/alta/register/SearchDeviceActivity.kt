@@ -1,9 +1,11 @@
 package io.canvas.alta.register
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import io.canvas.alta.DeviceListAdapter
 import io.canvas.alta.R
@@ -31,5 +33,9 @@ class SearchDeviceActivity : AppCompatActivity() {
 
         viewModel.startScan()
 
+        viewModel.items.observe(this, Observer {
+            if (it.size != 0)
+                Toast.makeText(this, "item was added", Toast.LENGTH_SHORT).show()
+        })
     }
 }

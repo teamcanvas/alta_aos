@@ -1,12 +1,12 @@
 package io.canvas.alta.register
 
 import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothAdapter.LeScanCallback
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.le.BluetoothLeScanner
 import android.bluetooth.le.ScanCallback
-import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
-import android.bluetooth.le.ScanSettings
 import android.os.Handler
-import android.os.ParcelUuid
 import androidx.core.os.postDelayed
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -17,7 +17,6 @@ import io.canvas.alta.data.models.BLEDevice
 import io.canvas.alta.utils.ListLiveData
 import timber.log.Timber
 import java.util.*
-import java.util.regex.Pattern
 import kotlin.collections.ArrayList
 
 
@@ -37,23 +36,28 @@ class SearchDeviceViewModel @ViewModelInject constructor(
     private val _deviceClickEvent = MutableLiveData<Event<BLEDevice>>()
     val deviceClickEvent: LiveData<Event<BLEDevice>> = _deviceClickEvent
 
+    private val tempDeviceList: ArrayList<BLEDevice> = ArrayList()
     val items = ListLiveData<BLEDevice>()
 
     fun startScan() {
+        //TODO isScanning 사용할 것.
+
         val leScanner = bluetoothAdapter.bluetoothLeScanner
-        items.clear(true)
+//        items.clear(true)
+//        _availableDevicesCount.value = 0
+//        tempDeviceList.clear()
 
-        val filters: MutableList<ScanFilter> = ArrayList()
-        val filter = ScanFilter.Builder()
-                .setDeviceName("Hue 조명 1")
-                .build()
-
-        filters.add(filter)
-
-        val settings = ScanSettings.Builder()
-                .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
-                .setReportDelay(3000L)
-                .build()
+//        val filters: MutableList<ScanFilter> = ArrayList()
+//        val filter = ScanFilter.Builder()
+//                .setDeviceName("Hue 조명 1")
+//                .build()
+//
+//        filters.add(filter)
+//
+//        val settings = ScanSettings.Builder()
+//                .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
+//                .setReportDelay(3000L)
+//                .build()
 
         Handler().postDelayed(delayInMillis = 5000L) {
             _isScanning.value = false
@@ -62,7 +66,9 @@ class SearchDeviceViewModel @ViewModelInject constructor(
         }
         _isScanning.value = true
 
-        leScanner.startScan(filters, settings, mScanCallback)
+        //leScanner.startScan(filters, settings, mScanCallback)
+        leScanner.startScan(mScanCallback)
+
         Timber.d("BLE Scan Started")
     }
 
@@ -87,14 +93,16 @@ class SearchDeviceViewModel @ViewModelInject constructor(
     private fun processResult(result: ScanResult) {
         //TODO 컬러 디바이스 이름에 맞춰 contains 로 변경
         if (result.device.name != null)
-            if (!hasDuplicates(items.value!!.toArray())) {
-                items.add(BLEDevice(result.device.name, result.device.address))
-                _availableDevicesCount.postValue(_availableDevicesCount.value?.plus(1))
-            }
+            addItem(BLEDevice(result.device.name, result.device.address))
+
     }
 
-    private fun <T> hasDuplicates(arr: Array<T>): Boolean {
-        return arr.size != arr.distinct().count()
+    private fun addItem(data: BLEDevice) {
+        if (!tempDeviceList.contains(data)) {
+            tempDeviceList.add(data)
+            items.add(data)
+            _availableDevicesCount.value = (availableDevicesCount.value?.plus(1))
+        }
     }
 
     fun clickDevice(device: BLEDevice) {
