@@ -37,7 +37,7 @@ class SearchDeviceViewModel @ViewModelInject constructor(
     val deviceClickEvent: LiveData<Event<BLEDevice>> = _deviceClickEvent
 
     private val tempDeviceList: ArrayList<BLEDevice> = ArrayList()
-    val items = ListLiveData<BLEDevice>()
+    val deviceList = ListLiveData<BLEDevice>()
 
     fun startScan() {
         //TODO isScanning 사용할 것.
@@ -100,7 +100,7 @@ class SearchDeviceViewModel @ViewModelInject constructor(
     private fun addItem(data: BLEDevice) {
         if (!tempDeviceList.contains(data)) {
             tempDeviceList.add(data)
-            items.add(data)
+            deviceList.add(data)
             _availableDevicesCount.value = (availableDevicesCount.value?.plus(1))
         }
     }

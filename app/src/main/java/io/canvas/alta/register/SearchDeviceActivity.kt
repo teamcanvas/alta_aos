@@ -33,7 +33,7 @@ class SearchDeviceActivity : AppCompatActivity() {
 
         viewModel.startScan()
 
-        viewModel.items.observe(this, Observer {
+        viewModel.deviceList.observe(this, Observer {
             if (it.size != 0)
                 Toast.makeText(this, "item was added", Toast.LENGTH_SHORT).show()
         })
