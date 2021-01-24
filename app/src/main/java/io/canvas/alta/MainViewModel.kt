@@ -14,7 +14,7 @@ import io.canvas.alta.utils.ListLiveData
 import timber.log.Timber
 
 class MainViewModel @ViewModelInject constructor(
-        private val bluetoothAdapter: BluetoothAdapter,
+        private val bluetoothAdapter: BluetoothAdapter
 ) : ViewModel() {
 
     private val _isScanning = MutableLiveData<Boolean>().apply { value = false }

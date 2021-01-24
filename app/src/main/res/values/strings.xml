@@ -1,8 +1,14 @@
 <resources>
-    <string name="app_name">Colors</string>
+    <string name="app_name">Alta</string>
     <string name="welcome">환영합니다!</string>
     <string name="welcome_explain">컬러 디바이스 사용을 위해\n등록을 진행해주세요.</string>
+    
+    <string name="acro_setting_1" translatable="false"><![CDATA[Take <b>Acro</b> out of the package and get ready.]]></string>
+    <string name="acro_setting_2" translatable="false"><![CDATA[Connect the <b>cable</b> to the port on the back of <b>Acro</b>.]]></string>
+    <string name="acro_setting_3" translatable="false"><![CDATA[Your <b>Acro</b> has just been preheated!]]></string>
+
     <string name="register_continue">계속하기</string>
     <string name="search_ble">기기를 검색 중 입니다.</string>
-    <string name="search_ble_explain" translatable="false">기기가 나타날때 까지 잠시만 기다려주세요.</string>
+    <string name="search_ble_explain" translatable="false">Acro is available</string>
+
 </resources>

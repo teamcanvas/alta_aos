@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import io.canvas.alta.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -30,9 +29,6 @@ class MainActivity : AppCompatActivity() {
         viewBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewBinding.lifecycleOwner = this
         viewBinding.viewModel = viewModel
-
-        adapter = DeviceListAdapter(viewModel)
-        deviceListRecyclerView.adapter = adapter
 
         viewModel.items.observe(this, Observer {
             Timber.d("${it?.size}")
