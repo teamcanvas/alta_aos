@@ -5,7 +5,7 @@ import com.orhanobut.logger.Logger
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import io.canvas.alta.BuildConfig
 import io.canvas.alta.data.remote.AppApiService
 import io.canvas.alta.utils.LiveDataCallAdapterFactory
@@ -30,7 +30,7 @@ class UserAgentInterceptor(private val userAgent: String) : Interceptor {
 }
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 open class NetworkModule {
 
     companion object {

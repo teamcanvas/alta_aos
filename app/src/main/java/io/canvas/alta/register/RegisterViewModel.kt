@@ -1,11 +1,13 @@
 package io.canvas.alta.register
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class RegisterViewModel @ViewModelInject constructor() : ViewModel() {
+@HiltViewModel
+class RegisterViewModel @Inject constructor() : ViewModel() {
     val acroStep = MutableLiveData<RegisterStep>().apply {
         value = RegisterStep.READY_ACRO_1
     }
