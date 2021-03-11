@@ -1,15 +1,17 @@
-package io.canvas.alta.register
+package io.canvas.alta.regist
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import dagger.hilt.android.AndroidEntryPoint
 import io.canvas.alta.DeviceListAdapter
+import io.canvas.alta.MainActivity
 import io.canvas.alta.R
 import io.canvas.alta.databinding.ActivitySearchDeviceBinding
+import timber.log.Timber
 
 /**
  * Created by Junseo on 2020-12-13.
@@ -34,8 +36,13 @@ class SearchDeviceActivity : AppCompatActivity() {
         viewModel.startScan()
 
         viewModel.deviceList.observe(this, Observer {
-            if (it.size != 0)
-                Toast.makeText(this, "item was added", Toast.LENGTH_SHORT).show()
+            //if (it.size != 0)
+            //Toast.makeText(this, "item was added", Toast.LENGTH_SHORT).show()
+        })
+
+        viewModel.nextProcessEvent.observe(this, {
+            Timber.d(it.toString())
+            startActivity(Intent(this@SearchDeviceActivity, MainActivity::class.java))
         })
     }
 }

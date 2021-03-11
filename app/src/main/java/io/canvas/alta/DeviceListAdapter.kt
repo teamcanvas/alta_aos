@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.canvas.alta.data.models.BLEDevice
 import io.canvas.alta.databinding.ItemDeviceBinding
-import io.canvas.alta.register.SearchDeviceViewModel
+import io.canvas.alta.regist.SearchDeviceViewModel
 import timber.log.Timber
 
 class DeviceListAdapter(private val viewModel: SearchDeviceViewModel) :
@@ -52,7 +52,7 @@ class DeviceListDiffCallback : DiffUtil.ItemCallback<BLEDevice>() {
     }
 
     override fun areContentsTheSame(oldItem: BLEDevice, newItem: BLEDevice): Boolean {
-        Timber.d("arecontentsthesame: ${oldItem.equals(newItem)}")
+        Timber.d("arecontentsthesame: ${oldItem == newItem}")
         return oldItem == newItem
     }
 }

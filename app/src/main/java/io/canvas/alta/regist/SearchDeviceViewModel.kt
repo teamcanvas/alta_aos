@@ -1,9 +1,6 @@
-package io.canvas.alta.register
+package io.canvas.alta.regist
 
 import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothAdapter.LeScanCallback
-import android.bluetooth.BluetoothDevice
-import android.bluetooth.le.BluetoothLeScanner
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanResult
 import android.os.Handler
@@ -16,7 +13,6 @@ import io.canvas.alta.Event
 import io.canvas.alta.data.models.BLEDevice
 import io.canvas.alta.utils.ListLiveData
 import timber.log.Timber
-import java.util.*
 import javax.inject.Inject
 import kotlin.collections.ArrayList
 
@@ -27,7 +23,7 @@ import kotlin.collections.ArrayList
 
 @HiltViewModel
 class SearchDeviceViewModel @Inject constructor(
-        private val bluetoothAdapter: BluetoothAdapter
+    private val bluetoothAdapter: BluetoothAdapter
 ) : ViewModel() {
 
     private val _availableDevicesCount = MutableLiveData<Int>().apply { value = 0 }
@@ -41,6 +37,9 @@ class SearchDeviceViewModel @Inject constructor(
 
     private val tempDeviceList: ArrayList<BLEDevice> = ArrayList()
     val deviceList = ListLiveData<BLEDevice>()
+
+    private val _nextProcessEvent = MutableLiveData<Event<NextProcess>>()
+    val nextProcessEvent: LiveData<Event<NextProcess>> = _nextProcessEvent
 
     fun startScan() {
         //TODO isScanning 사용할 것.
@@ -66,6 +65,11 @@ class SearchDeviceViewModel @Inject constructor(
             _isScanning.value = false
             leScanner.stopScan(mScanCallback)
             Timber.d("BLE Scan Stopped")
+            if (tempDeviceList.size > 0)
+                _nextProcessEvent.value = Event(NextProcess.READY_TO_CONNECT)
+            else
+                _nextProcessEvent.value = Event(NextProcess.NO_DEVICE)
+            //TODO 갯수따라 분기처리 하기
         }
         _isScanning.value = true
 
@@ -78,7 +82,7 @@ class SearchDeviceViewModel @Inject constructor(
     private val mScanCallback: ScanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             processResult(result)
-            Timber.e("on scan result: ${result.device.address}")
+            Timber.e("on scan result: ${result.device.address}, ${result.rssi}")
         }
 
         override fun onBatchScanResults(results: List<ScanResult>) {
@@ -96,7 +100,7 @@ class SearchDeviceViewModel @Inject constructor(
     private fun processResult(result: ScanResult) {
         //TODO 컬러 디바이스 이름에 맞춰 contains 로 변경
         if (result.device.name != null)
-            addItem(BLEDevice(result.device.name, result.device.address))
+            addItem(BLEDevice(result.device.name ?: "null", result.device.address))
 
     }
 
@@ -111,4 +115,10 @@ class SearchDeviceViewModel @Inject constructor(
     fun clickDevice(device: BLEDevice) {
         _deviceClickEvent.value = Event(device)
     }
+}
+
+enum class NextProcess {
+    READY_TO_CONNECT,
+    SEARCHED_MORE_DEVICE,
+    NO_DEVICE
 }

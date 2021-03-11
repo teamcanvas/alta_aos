@@ -3,13 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="io.canvas.alta.register.RegisterViewModel" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -29,14 +22,16 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:fontFamily="@font/noto_sans_regular"
             android:text="@string/welcome_explain"
             android:textColor="@color/black"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
 
@@ -44,11 +39,11 @@
             android:id="@+id/animationView"
             android:layout_width="300dp"
             android:layout_height="300dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
-            android:visibility="gone"
             app:layout_constraintVertical_bias="0.35"
             app:lottie_autoPlay="true"
             app:lottie_fileName="welcome_connect.json"
@@ -57,17 +52,18 @@
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
             android:layout_width="wrap_content"
-            android:visibility="gone"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/noto_sans_bold"
             android:text="@string/register_continue"
             android:textColor="@color/white"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
 
+        <!--
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -102,6 +98,19 @@
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+-->
 
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/noto_sans_regular"
+            android:gravity="center"
+            android:text="@string/next"
+            app:icon="@drawable/ic_arrow_forward_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

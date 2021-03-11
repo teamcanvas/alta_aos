@@ -19,15 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Alta_android">
-        <activity android:name="io.canvas.alta.MainActivity">
 
-        </activity>
-
-        <activity android:name="io.canvas.alta.register.WelcomeActivity">
-
-        </activity>
-
-        <activity android:name=".register.ReadyAcroActivity">
+        <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +28,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".register.SearchDeviceActivity" />
+        <activity android:name=".regist.SearchDeviceActivity" />
+        <activity android:name="io.canvas.alta.MainActivity" />
     </application>
 
 </manifest>

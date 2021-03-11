@@ -22,24 +22,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityMainBinding
 
-    private lateinit var adapter: DeviceListAdapter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewBinding.lifecycleOwner = this
         viewBinding.viewModel = viewModel
 
-        viewModel.items.observe(this, Observer {
-            Timber.d("${it?.size}")
-
-            for (item in it) {
-                Timber.d("name: ${item.name}, address: ${item.address}")
-            }
-        })
-
-        viewModel.deviceClickEvent.observe(this, EventObserver {
-            Toast.makeText(this, "deviceName: ${it.name}\naddress: ${it.address}", Toast.LENGTH_SHORT).show()
-        })
+        viewBinding.bottomBar.onItemSelected = {
+            Timber.d("bottombar: $it")
+        }
     }
 }
