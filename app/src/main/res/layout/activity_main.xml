@@ -17,37 +17,18 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/textView"
+        <FrameLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/noto_sans_regular"
-            android:text="THURSDAY, MARCH 11"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/noto_sans_bold"
-            android:lineSpacingExtra="-4dp"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:text="미세먼지 나쁨 단계,\n외부 활동에 주의하세요." />
+            android:layout_height="match_parent" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="?attr/actionBarSize"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            app:cardCornerRadius="32dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="28dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -56,18 +37,18 @@
                 android:id="@+id/bottomBar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
                 android:background="@drawable/bottom_nav_background"
-                app:iconTint="#FF6671"
-                app:iconTintActive="#FF6671"
+                app:iconTint="@color/colorPrimaryDark"
+                app:iconTintActive="@color/secondaryDark"
                 app:indicatorColor="#14FF6671"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:menu="@menu/bottom_navigation_menu"
                 app:sideMargins="8dp"
-                app:textColor="#FF6671" />
+                app:textColor="@color/secondaryDark" />
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

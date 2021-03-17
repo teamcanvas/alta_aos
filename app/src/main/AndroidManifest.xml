@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alta_android">
 
-        <activity android:name=".WelcomeActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +29,7 @@
         </activity>
 
         <activity android:name=".regist.SearchDeviceActivity" />
-        <activity android:name="io.canvas.alta.MainActivity" />
+<!--        <activity android:name="io.canvas.alta.MainActivity" />-->
     </application>
 
 </manifest>
