@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("io.canvas.colors", appContext.packageName)
+        assertEquals("io.canvas.alta", appContext.packageName)
     }
 }

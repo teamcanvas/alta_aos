@@ -2,40 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.canvas.alta">
 
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-    <!-- If your app targets Android 9 or lower, you can declare
-         ACCESS_COARSE_LOCATION instead. -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="io.canvas.alta.AppApplication"
-        android:allowBackup="true"
+        android:name="io.canvas.alta.Application"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Alta_android">
-        <activity android:name="io.canvas.alta.MainActivity">
-
-        </activity>
-
-        <activity android:name="io.canvas.alta.register.WelcomeActivity">
-
-        </activity>
-
-        <activity android:name=".register.ReadyAcroActivity">
+        android:theme="@style/Theme.CleanArchitecture">
+        <activity
+            android:name="io.canvas.alta.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".register.SearchDeviceActivity" />
     </application>
 
 </manifest>
